@@ -1,0 +1,11 @@
+- name: tenzyu masuda
+  email: tenzyu@shiina.family
+  avatar: ./avatars/tenzyu.jpg
+
+- name: yuki hiragino
+  email: yuki@shiina.family
+  avatar: ./avatars/yuki.jpg
+
+- name: hirosuke seno
+  email: hirosuke@shiina.family
+  avatar: ./avatars/hirosuke.png
