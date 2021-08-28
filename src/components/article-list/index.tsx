@@ -4,7 +4,6 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 interface ArticleType {
   frontmatter: {
     date: string,
-    thumbnail: string,
     title: string,
     writer: string
   }
@@ -28,7 +27,6 @@ const ArticleList: React.FC = () => {
           node {
             frontmatter {
               date(formatString: "YYYY年MM月DD日")
-              thumbnail
               title
               writer
             }
