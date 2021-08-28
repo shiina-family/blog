@@ -9,9 +9,14 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        icon: "./content/assets/icon.png",
+        name: 'blog - shiina',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#0076FF',
+        display: 'minimal-ui',
+        icon: './content/assets/icon.png',
       },
     },
     {
