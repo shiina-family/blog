@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require("path");
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -22,8 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const posts = result.data.allMdx.edges;
   posts.forEach((post) => {
-      console.log(post.node.id)
-      createPage({
+    createPage({
       path: post.node.slug,
       component: path.resolve(`./src/templates/article.tsx`),
       context: {
