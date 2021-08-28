@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 interface ArticleType {
   data: {
@@ -9,7 +9,7 @@ interface ArticleType {
       html: string,
       frontmatter: {
         date: string,
-        thumbnail: any,
+        thumbnail: ImageDataLike,
         title: string,
         writer: string
       }
