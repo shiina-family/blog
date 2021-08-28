@@ -30,6 +30,7 @@ const Article: React.FC<ArticleType> = ({ data }) => {
           <span>{data.mdx.frontmatter.date}</span>
         </div>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        <Link to="/">back</Link>
       </article>
     </div>
   )
