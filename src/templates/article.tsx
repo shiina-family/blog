@@ -1,6 +1,7 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 interface ArticleType {
   data: {
@@ -8,7 +9,7 @@ interface ArticleType {
       html: string,
       frontmatter: {
         date: string,
-        thumbnail: string,
+        thumbnail: any,
         title: string,
         writer: string
       }
@@ -22,8 +23,7 @@ const Article: React.FC<ArticleType> = ({ data }) => {
   return (
     <div>
       <article>
-        {/* Todo: 画像に置き換える */}
-        <div>{data.mdx.frontmatter.thumbnail}</div>
+        <GatsbyImage image={getImage(data.mdx.frontmatter.thumbnail)!} alt="a" />
         <h1>{data.mdx.frontmatter.title}</h1>
         <div>
           <span>{data.mdx.frontmatter.writer}</span>
@@ -39,16 +39,20 @@ const Article: React.FC<ArticleType> = ({ data }) => {
 export default Article;
 
 export const query = graphql`
-    query articleTemplate($id: String!) {
-      mdx(id: {eq: $id}) {
-        frontmatter {
-          date(formatString: "YYYY年MM月DD日")
-          thumbnail
-          title
-          writer
+  query articleTemplate($id: String!) {
+    mdx(id: {eq: $id}) {
+      frontmatter {
+        date(formatString: "YYYY年MM月DD日")
+        thumbnail {
+          childImageSharp {
+            gatsbyImageData(width: 200)
+          }
         }
-        body
-        slug
+        title
+        writer
       }
+      body
+      slug
     }
+  }
 `
