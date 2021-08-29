@@ -1,9 +1,15 @@
 import React from "react";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
-export const SingleLayout: React.FC = ({ children }) => {
+const SingleLayout: React.FC = ({ children }) => {
     return (
         <div>
+            <Header></Header>
             {children}
+            <Footer></Footer>
         </div>
     );
 };
+
+export default SingleLayout;
