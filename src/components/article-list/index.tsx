@@ -1,9 +1,12 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
+import { ImageDataLike, GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getAvatarOf } from "../avatar";
 
 interface ArticleType {
   frontmatter: {
     date: string,
+    thumbnail: ImageDataLike,
     title: string,
     writer: string
   }
@@ -11,22 +14,28 @@ interface ArticleType {
   excerpt: string
 }
 
-interface ArticleListType {
+interface AllArticleType {
   allMdx: {
     edges: {
       node: ArticleType
     }[]
   }
+
 }
 
 const ArticleList: React.FC = () => {
-  const data = useStaticQuery<ArticleListType>(graphql`
+  const data = useStaticQuery<AllArticleType>(graphql`
     query articleList {
       allMdx(sort: { order: DESC, fields: frontmatter___date }) {
         edges {
           node {
             frontmatter {
               date(formatString: "YYYY年MM月DD日")
+              thumbnail {
+                childImageSharp {
+                  gatsbyImageData(height:128)
+                }
+              }
               title
               writer
             }
@@ -37,20 +46,29 @@ const ArticleList: React.FC = () => {
       }
     }
   `);
-  const edges = data.allMdx.edges;
+
+  const mdxEdges = data.allMdx.edges;
 
   return (
     <div>
-      <h1>全ての記事</h1>
+      <h1 className="text-4xl py-4 font-bold">All Articles</h1>
       <ul className="space-y-4">
-        {edges.map((edge) => (
+        {mdxEdges.map((edge) => (
           <li className="border rounded-md border-gray-700" key={edge.node.slug}>
             <Link to={edge.node.slug}>
-              <div className="text-xl">{edge.node.frontmatter.title}</div>
-              <div className="text-gray-400">
-                <div>{edge.node.excerpt}</div>
-                <span>{edge.node.frontmatter.date}</span>{" - "}
-                <span>{edge.node.frontmatter.writer}</span>
+              <div className="flex">
+                <GatsbyImage className="w-28-force h-28-force mr-1 rounded-l-md z-10" image={getImage(edge.node.frontmatter.thumbnail)!} alt="a" />
+                <div className="min-w-0 p-1 flex flex-col">
+                  <h2 className="text-lg mb-1 overflow-hidden overflow-ellipsis whitespace-nowrap">{edge.node.frontmatter.title}</h2>
+                  <p className="text-gray-400 flex-grow overflow-hidden overflow-ellipsis whitespace-nowrap">{edge.node.excerpt}</p>
+                  <div className="text-gray-400 flex">
+                    <time>{edge.node.frontmatter.date}</time>{" - "}
+                    <div className="my-auto">
+                    <GatsbyImage className="max-w-7 rounded-full z-10" image={getImage(getAvatarOf(edge.node.frontmatter.writer))!} alt="icon of writer" />
+                    <p className="inline">{edge.node.frontmatter.writer}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Link>
           </li>
@@ -61,3 +79,6 @@ const ArticleList: React.FC = () => {
 }
 
 export default ArticleList;
+
+
+
