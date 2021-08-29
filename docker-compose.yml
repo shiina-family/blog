@@ -9,5 +9,5 @@ services:
     volumes:
       - /home/deploy/blog:/code
     working_dir: /code
-    command: npm serve
+    command: npm run serve
     restart: always
