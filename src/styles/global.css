@@ -10,3 +10,17 @@ body {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
+.w-28-force {
+    min-width: 112px !important;
+    max-width: 112px !important;
+}
+
+.h-28-force {
+    min-height: 112px !important;
+    max-height: 112px !important;
+}
+
+.max-w-screen-blog {
+    max-width: 700px;
+}
