@@ -11,6 +11,20 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.thumbnail {
+    min-width: 80px!important;
+    max-width: 80px!important;
+    min-height: 80px!important;
+    max-height: 80px!important;
+}
+
+.avatar-mini {
+    min-width: 32px!important;
+    max-width: 32px!important;
+    min-height: 32px!important;
+    max-height: 32px!important;
+}
+
 .w-28-force {
     min-width: 112px !important;
     max-width: 112px !important;

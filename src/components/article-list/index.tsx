@@ -30,7 +30,7 @@ const ArticleList: React.FC = () => {
         edges {
           node {
             frontmatter {
-              date(formatString: "YYYY年MM月DD日")
+              date(fromNow: true)
               thumbnail {
                 childImageSharp {
                   gatsbyImageData(height:128)
@@ -40,7 +40,6 @@ const ArticleList: React.FC = () => {
               writer
             }
             slug
-            excerpt(pruneLength: 80)
           }
         }
       }
@@ -50,31 +49,32 @@ const ArticleList: React.FC = () => {
   const mdxEdges = data.allMdx.edges;
 
   return (
-    <div>
+    <>
       <h1 className="text-4xl py-4 font-bold">All Articles</h1>
+
       <ul className="space-y-4">
         {mdxEdges.map((edge) => (
-          <li className="border rounded-md border-gray-700" key={edge.node.slug}>
-            <Link to={edge.node.slug}>
-              <div className="flex">
-                <GatsbyImage className="w-28-force h-28-force mr-1 rounded-l-md z-10" image={getImage(edge.node.frontmatter.thumbnail)!} alt="a" />
-                <div className="min-w-0 p-1 flex flex-col">
-                  <h2 className="text-lg mb-1 overflow-hidden overflow-ellipsis whitespace-nowrap">{edge.node.frontmatter.title}</h2>
-                  <p className="text-gray-400 flex-grow overflow-hidden overflow-ellipsis whitespace-nowrap">{edge.node.excerpt}</p>
-                  <div className="text-gray-400 flex">
-                    <time>{edge.node.frontmatter.date}</time>{" - "}
-                    <div className="my-auto">
-                    <GatsbyImage className="max-w-7 rounded-full z-10" image={getImage(getAvatarOf(edge.node.frontmatter.writer))!} alt="icon of writer" />
-                    <p className="inline">{edge.node.frontmatter.writer}</p>
+          <Link to={edge.node.slug}>
+            <li key={edge.node.slug} className="flex mb-6">
+              <GatsbyImage className="thumbnail rounded-lg mt-1 mr-3 z-10" image={getImage(edge.node.frontmatter.thumbnail)!} alt="a" />
+              <div className="flex flex-col">
+                <h2 className="mb-1">{edge.node.frontmatter.title}</h2>
+                <div className="text-gray-400 flex font-light text-md">
+                  <div className="my-auto flex">
+                    <GatsbyImage className="mr-2 avatar-mini rounded-full z-10" image={getImage(getAvatarOf(edge.node.frontmatter.writer))!} alt="icon of writer" />
+                    <div className="py-auto">
+                      <p className="inline">{edge.node.frontmatter.writer}</p>
+                      <time className="text-gray-500 text-sm">・{edge.node.frontmatter.date}</time>
                     </div>
                   </div>
                 </div>
               </div>
-            </Link>
-          </li>
+            </li>
+          </Link>
         ))}
       </ul>
-    </div>
+
+    </>
   )
 }
 

@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
-import Layout from "../layouts/article";
+import Layout from "../layouts/single";
 import { getAvatarOf } from "../components/avatar";
 
 interface ArticleType {
