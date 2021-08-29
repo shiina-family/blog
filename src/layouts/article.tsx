@@ -4,11 +4,13 @@ import Footer from "../components/footer";
 
 const ArticleLayout: React.FC = ({ children }) => {
   return (
-    <div>
+    <>
       <Header></Header>
-      {children}
+      <main className="mt-16">
+        {children}
+      </main>
       <Footer></Footer>
-    </div>
+    </>
   );
 };
 
