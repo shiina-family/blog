@@ -42,14 +42,16 @@ const ArticleList: React.FC = () => {
   return (
     <div>
       <h1>全ての記事</h1>
-      <ul>
+      <ul className="space-y-4">
         {edges.map((edge) => (
-          <li key={edge.node.slug}>
+          <li className="border rounded-md border-gray-700" key={edge.node.slug}>
             <Link to={edge.node.slug}>
-              <div>{edge.node.frontmatter.title}</div>
-              <div>{edge.node.excerpt}</div>
-              <span>{edge.node.frontmatter.date}</span>{" "}
-              <span>{edge.node.frontmatter.writer}</span>
+              <div className="text-xl">{edge.node.frontmatter.title}</div>
+              <div className="text-gray-400">
+                <div>{edge.node.excerpt}</div>
+                <span>{edge.node.frontmatter.date}</span>{" - "}
+                <span>{edge.node.frontmatter.writer}</span>
+              </div>
             </Link>
           </li>
         ))}
