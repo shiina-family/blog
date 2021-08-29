@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  blog-shiina:
+    container_name: blog-shiina
+    image: node
+    ports:
+      - '31858:31858'
+    volumes:
+      - /home/deploy/blog:/code
+    working_dir: /code
+    command: npm start
+    restart: always
