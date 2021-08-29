@@ -20,11 +20,15 @@ interface ArticleType {
   }
 }
 
+
 const Article: React.FC<ArticleType> = ({ data }) => {
   return (
     <Layout>
+      <article className="prose mx-auto px-4">
+        <h1 className="pt-8">{data.mdx.frontmatter.title}</h1>
+        {/* GatsbyImage: gatsby-image-wrapper あたりの影響で、 */}
+        {/* dev段階では描画がズレる。ビルド後は問題ない。 */}
         <GatsbyImage image={getImage(data.mdx.frontmatter.thumbnail)!} alt="a" />
-        <h1>{data.mdx.frontmatter.title}</h1>
         <div>
           <span>{data.mdx.frontmatter.writer}</span>
           <span>{data.mdx.frontmatter.date}</span>
@@ -45,7 +49,7 @@ export const query = graphql`
         date(formatString: "YYYY年MM月DD日")
         thumbnail {
           childImageSharp {
-            gatsbyImageData(width: 200)
+            gatsbyImageData(width:640 height:320)
           }
         }
         title
