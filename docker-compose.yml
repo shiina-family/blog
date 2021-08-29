@@ -33,8 +33,6 @@ services:
     container_name: 'blog-shiina'
     hostname: 'blog-shiina'
     working_dir: /home/node/app
-    environment:
-      - NODE_ENV: "development"
     volumes:
       - /home/deploy/blog:/home/node/app
     ports:
