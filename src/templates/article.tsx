@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+import Layout from "../layouts/article";
 
 interface ArticleType {
   data: {
@@ -21,8 +22,7 @@ interface ArticleType {
 
 const Article: React.FC<ArticleType> = ({ data }) => {
   return (
-    <div>
-      <article>
+    <Layout>
         <GatsbyImage image={getImage(data.mdx.frontmatter.thumbnail)!} alt="a" />
         <h1>{data.mdx.frontmatter.title}</h1>
         <div>
@@ -32,7 +32,7 @@ const Article: React.FC<ArticleType> = ({ data }) => {
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
         <Link to="/">back</Link>
       </article>
-    </div>
+    </Layout>
   )
 }
 
