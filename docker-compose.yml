@@ -1,13 +1,43 @@
 version: '3'
 
 services:
-  blog-shiina:
-    container_name: blog-shiina
-    image: node
-    ports:
-      - '31858:31858'
+  blog-install:
+    build: ./
+    container_name: 'blog-install'
+    hostname: 'blog-install'
+    working_dir: /home/node/app
     volumes:
-      - /home/deploy/blog:/code
-    working_dir: /code
-    command: npm run serve
+      - /home/deploy/blog:/home/node/app
+    command: npm install
+
+  blog-reset:
+    build: ./
+    container_name: 'blog-reset'
+    hostname: 'blog-reset'
+    working_dir: /home/node/app
+    volumes:
+      - /home/deploy/blog:/home/node/app
+    command: sh -c 'gatsby clean && npm clean-install'
+ 
+  blog-build:
+    build: ./
+    container_name: 'blog-build'
+    hostname: 'blog-build'
+    working_dir: /home/node/app
+    volumes:
+      - /home/deploy/blog:/home/node/app
+    command: sh -c 'gatsby clean && gatsby build'
+
+  blog-serve:
+    build: ./
+    container_name: 'blog-shiina'
+    hostname: 'blog-shiina'
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV: "development"
+    volumes:
+      - /home/deploy/blog:/home/node/app
+    ports:
+      - "31858:31858"
+    command: gatsby serve
     restart: always
