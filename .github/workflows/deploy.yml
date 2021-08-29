@@ -30,7 +30,7 @@ jobs:
           key: ${{ secrets.DEPLOY_SERVER_PRIVATE_KEY }}
           script: |
             cd /home/${{ secrets.DEPLOY_SERVER_USER }}/blog
-            docker-compose up -d --force-recreate
+            docker-compose down -v blog-serve
             docker-compose run --rm blog-install
             docker-compose run --rm blog-build
-            docker-compose run --rm blog-serve
+            docker-compose up -d blog-serve

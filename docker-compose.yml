@@ -37,5 +37,5 @@ services:
       - /home/deploy/blog:/home/node/app
     ports:
       - "31858:31858"
-    command: gatsby serve
+    command: gatsby serve -p 31858 -H 0.0.0.0
     restart: always
