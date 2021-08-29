@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "npm run clean && gatsby develop -H 0.0.0.0",
     "build": "npm run clean && gatsby build",
-    "serve": "gatsby serve -H 0.0.0.0",
+    "serve": "gatsby serve",
+    "serveD": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean"
   },
   "dependencies": {
