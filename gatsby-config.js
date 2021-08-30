@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
+    title: "Shiina",
+    description: "THE SHIINA FAMILY BLOG",
+    author: "@tenzyumasuda",
     siteUrl: "https://blog.shiina.family",
-    title: "blog",
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -10,27 +12,28 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: 'blog - shiina',
-        start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#0076FF',
-        display: 'minimal-ui',
-        icon: './content/assets/icon.png',
+        name: "shiina - blog",
+        short_name: "ShiinaBlog",
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#0076FF",
+        display: "minimal-ui",
+        icon: "./content/assets/icon.png",
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: "gatsby-plugin-mdx",
       options: {
-        gatsbyRemarkPlugins: [`gatsby-remark-prismjs`],
+        gatsbyRemarkPlugins: ["gatsby-remark-prismjs"],
       },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: "gatsby-plugin-sharp",
       options: {
         defaults: {
-          placeholder: `blurred`,
+          placeholder: "blurred",
           quality: 90,
         },
       },
