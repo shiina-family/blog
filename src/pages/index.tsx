@@ -6,7 +6,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="container mx-auto px-4 max-w-xl min-h-full">
-        <ArticleList></ArticleList>
+        <ArticleList />
       </div>
     </Layout>
   )

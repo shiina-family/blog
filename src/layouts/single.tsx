@@ -9,11 +9,11 @@ const minHeight = {
 const SingleLayout: React.FC = ({ children }) => {
   return (
     <>
-      <Header></Header>
+      <Header />
       <main style={minHeight} className="mt-16">
         {children}
       </main>
-      <Footer></Footer>
+      <Footer />
   </>
   );
 };
