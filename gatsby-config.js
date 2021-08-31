@@ -20,7 +20,7 @@ module.exports = {
         background_color: "#ffffff",
         theme_color: "#0076FF",
         display: "minimal-ui",
-        icon: "./content/assets/icon.png",
+        icon: "./static/icon.png",
       },
     },
     {
@@ -43,7 +43,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./content/assets",
+        path: "./static",
       },
       __key: "images",
     },
