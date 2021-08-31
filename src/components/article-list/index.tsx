@@ -62,7 +62,7 @@ const ArticleList: React.FC = () => {
             <li className="flex mb-6">
               <GatsbyImage className="thumbnail rounded-lg mt-1 mr-3 z-10" image={getImage(edge.node.frontmatter.thumbnail)!} alt="a" />
               <div className="flex flex-col">
-                <h2 className="mb-1">{edge.node.frontmatter.title}</h2>
+                <h2 className="mb-2">{edge.node.frontmatter.title}</h2>
                 <div className="text-gray-400 flex font-light text-md">
                   <div className="my-auto flex">
                     <GatsbyImage className="mr-2 avatar-mini rounded-full z-10" image={getImage(getAvatarOf(edge.node.frontmatter.writer))!} alt="icon of writer" />
