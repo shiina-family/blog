@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { ImageDataLike, GatsbyImage, getImage } from "gatsby-plugin-image";
-import { getAvatarOf } from "../../utils/avatar";
+import { getAvatarOf } from "../../utils/get-avatar-of";
 
 interface ArticleType {
   frontmatter: {

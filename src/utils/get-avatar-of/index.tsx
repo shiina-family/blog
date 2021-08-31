@@ -15,9 +15,9 @@ interface AllYamlType {
   }
 }
 
-function getAllYaml() {
+export function getAvatarOf(nick: string): ImageDataLike  {
   const data = useStaticQuery<AllYamlType>(graphql`
-    query allYaml {
+    query {
       allDataYaml {
         edges {
           node {
@@ -32,11 +32,6 @@ function getAllYaml() {
       }
     }
   `);
-  return data;
-}
-
-export function getAvatarOf(nick: string): ImageDataLike  {
-  const data = getAllYaml()
   const ymlEdges = data.allDataYaml.edges;
 
   let avatar;
