@@ -11,18 +11,26 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+img {
+    background-color: #363636;
+}
+
+.no-highlighting {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .thumbnail {
-    min-width: 80px!important;
-    max-width: 80px!important;
-    min-height: 80px!important;
-    max-height: 80px!important;
+    min-width: 80px !important;
+    max-width: 80px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
 }
 
 .avatar-mini {
-    min-width: 32px!important;
-    max-width: 32px!important;
-    min-height: 32px!important;
-    max-height: 32px!important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
 }
 
 .w-28-force {
@@ -38,3 +46,4 @@ body {
 .max-w-screen-blog {
     max-width: 700px;
 }
+
