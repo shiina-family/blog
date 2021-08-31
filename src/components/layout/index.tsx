@@ -2,8 +2,11 @@ import React from "react";
 import Header from "../header";
 import Footer from "../footer";
 
+import "../../styles/global.css";
+import "prismjs/themes/prism-twilight.css";
+
 const minHeight = {
-  minHeight: 'calc(100vh - 64px)'
+  minHeight: 'calc(100vh - 64px - 32px)'
 }
 
 const SingleLayout: React.FC = ({ children }) => {
@@ -14,7 +17,7 @@ const SingleLayout: React.FC = ({ children }) => {
         {children}
       </main>
       <Footer />
-  </>
+    </>
   );
 };
 
