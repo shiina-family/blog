@@ -1,14 +1,17 @@
 - nick: tenzyu
   fullName: tenzyu masuda
+  twitter: '@tenzyumasuda'
   email: tenzyu@shiina.family
   avatar: ./avatars/tenzyu.jpg
 
 - nick: yuki
   fullName: yuki hiragino
+  twitter: '@hiraginoyuki'
   email: yuki@shiina.family
   avatar: ./avatars/yuki.jpg
 
 - nick: hirosuke
   fullName: hirosuke seno
+  twitter: '@hirosuke_7584'
   email: hirosuke@shiina.family
   avatar: ./avatars/hirosuke.png
