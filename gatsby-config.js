@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: "Shiina",
     description: "THE SHIINA FAMILY BLOG",
-    author: "@tenzyumasuda",
     siteUrl: "https://blog.shiina.family",
+    author: "@tenzyumasuda",
   },
   plugins: [
     "gatsby-plugin-postcss",
