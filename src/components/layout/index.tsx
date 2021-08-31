@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../header";
+import Footer from "../footer";
 
 const minHeight = {
-  minHeight: 'calc(100vh - 172px)'
+  minHeight: 'calc(100vh - 64px)'
 }
 
 const SingleLayout: React.FC = ({ children }) => {
