@@ -30,7 +30,7 @@ jobs:
           key: ${{ secrets.DEPLOY_SERVER_PRIVATE_KEY }}
           script: |
             cd /home/${{ secrets.DEPLOY_SERVER_USER }}/blog
-            docker-compose down -v blog-serve
+            docker-compose down -v blog-shiina
             docker-compose run --rm blog-install
             docker-compose run --rm blog-build
             docker-compose up -d blog-serve
