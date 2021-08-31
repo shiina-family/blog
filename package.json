@@ -6,37 +6,41 @@
   "author": "Tenzyu Masuda <tenzyu@shiina.family>",
   "scripts": {
     "dev": "npm run clean && gatsby develop -H 0.0.0.0",
+    "devs": "npm run build && gatsby serve -H 0.0.0.0",
     "build": "npm run clean && gatsby build",
     "serve": "gatsby serve",
-    "serveD": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "gatsby": "^3.11.1",
+    "babel-plugin-styled-components": "^1.13.2",
+    "gatsby": "^3.12.1",
     "gatsby-plugin-image": "^1.12.0",
     "gatsby-plugin-manifest": "^3.12.0",
     "gatsby-plugin-mdx": "^2.12.0",
     "gatsby-plugin-react-helmet": "^4.12.0",
     "gatsby-plugin-sharp": "^3.12.0",
     "gatsby-plugin-sitemap": "^4.8.0",
+    "gatsby-plugin-styled-components": "^4.12.0",
     "gatsby-plugin-typescript": "^3.12.0",
     "gatsby-remark-prismjs": "^5.9.0",
     "gatsby-source-filesystem": "^3.12.0",
     "gatsby-transformer-sharp": "^3.12.0",
     "gatsby-transformer-yaml": "^3.12.0",
     "prismjs": "^1.24.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "typescript": "^4.3.5"
+    "styled-components": "^5.3.1",
+    "typescript": "^4.4.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.1",
+    "@types/styled-components": "^5.1.13",
     "autoprefixer": "^10.3.3",
     "gatsby-plugin-postcss": "^4.12.0",
     "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.8"
+    "tailwindcss": "^2.2.9"
   }
 }
