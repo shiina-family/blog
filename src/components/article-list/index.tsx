@@ -33,7 +33,11 @@ const ArticleList: React.FC = () => {
               date(fromNow: true)
               thumbnail {
                 childImageSharp {
-                  gatsbyImageData(height:128)
+                  gatsbyImageData(
+                    width: 80
+                    height: 80
+                    transformOptions: {cropFocus: CENTER}
+                  )
                 }
               }
               title
@@ -54,8 +58,8 @@ const ArticleList: React.FC = () => {
 
       <ul className="space-y-4">
         {mdxEdges.map((edge) => (
-          <Link to={edge.node.slug}>
-            <li key={edge.node.slug} className="flex mb-6">
+          <Link to={edge.node.slug} key={edge.node.slug}>
+            <li className="flex mb-6">
               <GatsbyImage className="thumbnail rounded-lg mt-1 mr-3 z-10" image={getImage(edge.node.frontmatter.thumbnail)!} alt="a" />
               <div className="flex flex-col">
                 <h2 className="mb-1">{edge.node.frontmatter.title}</h2>
