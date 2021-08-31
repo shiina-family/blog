@@ -1,4 +1,10 @@
-FROM node:16-alpine
+FROM lambci/lambda:build-nodejs12.x
 
-RUN apk update && apk add git
-RUN npm install --global gatsby-cli
+WORKDIR /home/node/app
+COPY . $WORKDIR
+
+RUN npm i -g gatsby-cli
+RUN npm cache clean --force && npm ci
+
+RUN rm -rf node_modules/sharp
+RUN npm install --arch=x64 --platform=linux --target=10.15.0 sharp
