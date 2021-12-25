@@ -4,5 +4,11 @@ services:
   blog-shiina:
     container_name: blog-shiina
     build: .
+    command: >
+      sh -c "
+        gatsby clean &&
+        gatsby build &&
+        gatsby serve -p 31858 -H 0.0.0.0
+      "
     restart: always
   
