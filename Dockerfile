@@ -1,4 +1,4 @@
-FROM lambci/lambda:build-nodejs12.x
+FROM node:17-alpine
 
 WORKDIR /home/node/app
 COPY . $WORKDIR
