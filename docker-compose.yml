@@ -4,6 +4,8 @@ services:
   blog-shiina:
     container_name: blog-shiina
     build: .
+    working-dir:
+      /home/node/app
     command: >
       sh -c "
         gatsby clean &&
