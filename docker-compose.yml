@@ -10,7 +10,7 @@ services:
     working_dir: /home/node/app
     volumes:
       - node_modules:/home/node/app/node_modules
-      - /home/deploy/blog:/home/node/app
+      - /home/deploy/blog-shiina:/home/node/app
     ports:
       - "127.0.0.1:31858:31858"
     command: >
