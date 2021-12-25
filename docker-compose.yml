@@ -1,22 +1,10 @@
 version: '3'
 
-volumes:
-  node_modules:
-
 services:
   blog-shiina:
-    build: .
-    container_name: 'blog-shiina'
-    working_dir: /home/node/app
-    volumes:
-      - node_modules:/home/node/app/node_modules
-      - /home/deploy/blog-shiina:/home/node/app
-    ports:
-      - "127.0.0.1:31858:31858"
-    command: >
-      sh -c "
-        gatsby clean &&
-        gatsby build &&
-        gatsby serve -p 31858 -H 0.0.0.0
-      "
+    container_name: blog-shiina
+    image: gatsbyjs/gatsby:onbuild
+    environment:
+     - HTTP_PORT=6688
     restart: always
+  
