@@ -15,7 +15,7 @@ jobs:
       REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
       REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
       REMOTE_USER: ${{ secrets.REMOTE_USER }}
-      DIR_NAME: shiina-blog
+      DIR_NAME: blog-shiina
 
     steps:
       - uses: actions/checkout@v2
