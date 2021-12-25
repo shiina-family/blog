@@ -1,4 +1,7 @@
 FROM node:16
 
-RUN npm install -g gatsby-cli
-RUN gatsby --version
+WORKDIR /home/node/app
+COPY . $WORKDIR
+
+RUN npm i -g gatsby-cli
+RUN npm ci
